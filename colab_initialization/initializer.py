@@ -2,7 +2,7 @@ import os
 import wrds
 from google.colab import drive
 
-def initialize_project(capstone_project_path = '/content/drive/MyDrive/capstone/'):
+def initialize_colab(capstone_project_path = '/content/drive/MyDrive/capstone/'):
 
     drive.mount('/content/drive', force_remount=True)
 
@@ -30,5 +30,15 @@ def initialize_project(capstone_project_path = '/content/drive/MyDrive/capstone/
     db = wrds.Connection(wrds_username='thowley3')
     db.create_pgpass_file()
     
-    print(f"""Project successfully initialized.""")
+    print(f"""Colab successfully initialized.""")
     return None
+
+def initialize_wrds_connection():
+    print("""Initializing connection to WRDS.""")
+    
+    db = wrds.Connection(wrds_username='thowley3')
+    db.create_pgpass_file()
+
+    print("""WRDS connection successfully initialized.""")
+
+    return db
