@@ -1,4 +1,5 @@
 import os
+import wrds
 from google.colab import drive
 
 def initialize_project(capstone_project_path = '/content/drive/MyDrive/capstone/'):
@@ -24,5 +25,10 @@ def initialize_project(capstone_project_path = '/content/drive/MyDrive/capstone/
     path via Colab: {capstone_project_path}
     """)
 
+    print("""Connecting to WRDS.""")
+    
+    db = wrds.Connection(wrds_username='thowley3')
+    db.create_pgpass_file()
+    
     print(f"""Project successfully initialized.""")
     return None
