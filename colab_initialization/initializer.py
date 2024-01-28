@@ -24,11 +24,6 @@ def initialize_colab(capstone_project_path = '/content/drive/MyDrive/capstone/')
     It is located in the mounted Google Drive and accessible at the following 
     path via Colab: {capstone_project_path}
     """)
-
-    print("""Connecting to WRDS.""")
-    
-    db = wrds.Connection(wrds_username='thowley3')
-    db.create_pgpass_file()
     
     print(f"""Colab successfully initialized.""")
     return None
@@ -36,9 +31,9 @@ def initialize_colab(capstone_project_path = '/content/drive/MyDrive/capstone/')
 def initialize_wrds_connection():
     print("""Initializing connection to WRDS.""")
     
-    db = wrds.Connection(wrds_username='thowley3')
-    db.create_pgpass_file()
+    db_connection = wrds.Connection(wrds_username='thowley3')
+    db_connection.create_pgpass_file()
 
     print("""WRDS connection successfully initialized.""")
 
-    return db
+    return db_connection
