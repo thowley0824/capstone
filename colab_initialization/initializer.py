@@ -4,7 +4,7 @@ from google.colab import drive,userdata
 
 def initialize_colab(capstone_project_path = '/content/drive/MyDrive/capstone/'):
 
-    userdata.get('hugging_face')
+    userdata.get('HF_TOKEN')
     drive.mount('/content/drive', force_remount=True)
 
     if not os.path.exists(capstone_project_path):
