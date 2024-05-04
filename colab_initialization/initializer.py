@@ -1,9 +1,10 @@
 import os
 import wrds
-from google.colab import drive
+from google.colab import drive,userdata
 
 def initialize_colab(capstone_project_path = '/content/drive/MyDrive/capstone/'):
 
+    userdata.get('hugging_face')
     drive.mount('/content/drive', force_remount=True)
 
     if not os.path.exists(capstone_project_path):
@@ -24,6 +25,8 @@ def initialize_colab(capstone_project_path = '/content/drive/MyDrive/capstone/')
     It is located in the mounted Google Drive and accessible at the following 
     path via Colab: {capstone_project_path}
     """)
+
+    
     
     print(f"""Colab successfully initialized.""")
     return None
